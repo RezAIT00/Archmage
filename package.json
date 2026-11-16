@@ -1,0 +1,23 @@
+{
+  "name": "archmage",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5199 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 5198",
+    "capture": "node tools/capture.mjs",
+    "fetch-assets": "node tools/fetch-assets.mjs",
+    "fetch-sounds": "node tools/fetch-sounds.mjs"
+  },
+  "description": "ARCHMAGE - Tenth Circle: a physics-driven first-person wizard sandbox (Three.js + Rapier)",
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.43.1",
+    "vite": "^8.3.8"
+  }
+}

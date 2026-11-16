@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ARCHMAGE — Tenth Circle</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; font-family: 'Cinzel', 'Trajan Pro', 'Palatino Linotype', 'Book Antiqua', Georgia, serif; color: #f3e9d6; }
+  #game, #hud { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  #hud { pointer-events: none; }
+  #overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, rgba(8,6,14,0.55) 0%, rgba(2,1,5,0.92) 75%); z-index: 10; text-align: center; transition: opacity .6s ease; }
+  #overlay.hidden { opacity: 0; pointer-events: none; }
+  h1 { font-size: clamp(38px, 7vw, 104px); letter-spacing: .32em; margin: 0 0 0 .32em; font-weight: 500; background: linear-gradient(180deg, #fff6e0 0%, #ffcf8a 45%, #c8651e 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 28px rgba(255,140,40,.45)); }
+  h2 { font-size: clamp(12px, 1.5vw, 20px); letter-spacing: .7em; margin: 10px 0 44px .7em; font-weight: 400; color: #b9a98f; }
+  #start { font: inherit; font-size: 17px; letter-spacing: .4em; padding: 16px 44px 16px 52px; color: #ffe9c4; background: rgba(255,170,80,.06); border: 1px solid rgba(255,190,110,.55); cursor: pointer; transition: all .25s; }
+  #start:hover { background: rgba(255,170,80,.2); box-shadow: 0 0 34px rgba(255,150,50,.45); }
+  #start[disabled] { opacity: .45; cursor: default; }
+  #keys { margin-top: 44px; display: grid; grid-template-columns: repeat(4, auto); gap: 9px 30px; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: #a89c88; text-align: left; }
+  #keys b { color: #ffd9a0; font-weight: 600; margin-right: 8px; }
+  #pages { margin-top: 22px; max-width: 980px; font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; color: #8f8474; line-height: 1.7; }
+  #pages p { margin: 2px 0; } #pages i { color: #ffd9a0; font-style: normal; margin-right: 10px; letter-spacing: .12em; }
+  #bar { width: 320px; height: 2px; background: rgba(255,255,255,.12); margin-top: 26px; }
+  #bar i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, #ff8a2a, #ffe2a8); transition: width .2s; }
+  #status { margin-top: 10px; font-family: ui-monospace, Consolas, monospace; font-size: 11px; letter-spacing: .15em; color: #7d7466; min-height: 14px; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<canvas id="hud"></canvas>
+<div id="overlay">
+  <h1>ARCHMAGE</h1>
+  <h2>TENTH CIRCLE</h2>
+  <button id="start" disabled>ENTER THE SANCTUM</button>
+  <div id="bar"><i></i></div>
+  <div id="status">summoning…</div>
+  <div id="keys">
+    <span><b>WASD</b>move</span><span><b>SHIFT</b>sprint</span><span><b>MOUSE</b>look</span><span><b>LMB</b>cast / hold to channel</span>
+    <span><b>1 – 0</b>choose a skill</span><span><b>TAB</b>second grimoire page</span><span><b>WHEEL</b>cycle skills</span><span><b>H</b>hide HUD</span>
+    <span><b>F</b>Force Blast</span><span><b>RMB / E</b>Telekinesis</span><span><b>Q</b>CATACLYSM</span><span><b>G</b>Blink</span>
+    <span><b>V</b>Skywalk (fly)</span><span><b>SPACE / C</b>jump · up / down</span><span><b>R</b>rebuild the realm</span><span><b>B</b>camera: steady / cinematic</span>
+  </div>
+  <div id="pages">
+    <p><i>I · Destruction</i> Inferno Orb · Chain Lightning · Singularity · Starfall · Annihilation Ray · Earthshatter · Dragon's Breath · Eruption · Winter's Grasp · Tempest</p>
+    <p><i>II · Dominion</i> Stoneshape: Rise · Stoneshape: Abyss · Deluge · Verdant Bloom · Monolith · Ascension · Chronostasis · Thunderstorm · Eclipse · Restoration</p>
+    <p><i>The realm</i> a walled capital and its boroughs · towns, villages, a castle · the Greywater dam in the north-east holds a reservoir above the river valley</p>
+  </div>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
